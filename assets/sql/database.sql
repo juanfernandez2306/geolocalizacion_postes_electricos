@@ -15,9 +15,10 @@ CREATE TABLE users (
 	second_name VARCHAR(100),
 	first_last_name VARCHAR(100) NOT NULL,
 	second_last_name VARCHAR(100),
-	cid INT,
-	id_company int,
+	cid INT UNIQUE,
+	id_company INT FOREIGN KEY REFERENCES business(id_company),
 	email VARCHAR(100),
 	password VARCHAR(32) NOT NULL,
-	level_admin INT
+	level_admin INT FOREIGN KEY REFERENCES level_admins(level_admin),
+	status BOOLEAN
 );
